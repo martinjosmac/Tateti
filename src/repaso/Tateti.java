@@ -128,7 +128,7 @@ public class Tateti {
 
     private static boolean mostrarGanador(char[][] tateti) {
         //it would be good to find a way to apply the conditions in a simpler way. I tried some different ways
-        //but they didn´t work. But the important thing is the game works
+        //but they didn´t work. But the important thing is that the game works
         if (tateti[0][0] == 'O' && tateti[0][1] == 'O' && tateti[0][2] == 'O') {
             return true;
         }
