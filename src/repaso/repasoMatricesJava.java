@@ -9,6 +9,7 @@ public class repasoMatricesJava {
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
         int[][] matriz = new int[5][5];
+        int[] vector = new int[matriz.length];
 //      Llenar la matriz con números aleatorios.
         crearMatriz(matriz);
         //shows the array
@@ -27,6 +28,8 @@ public class repasoMatricesJava {
         sumaUltimFila(matriz);
         //shows if it is a magic square
         esmagico(matriz);
+        //trying another option to check if it is a magic square
+        magico1(matriz, vector);
     }
 
     private static void crearMatriz(int[][] matriz) {
@@ -121,7 +124,7 @@ public class repasoMatricesJava {
         }
         System.out.println("Principal: " + principal);
         System.out.println("Secondary: " + secondary);
-        System.out.println("Te whole sum is: " + principal + secondary);
+        System.out.println("Te whole sum is: " + (principal + secondary));
     }
 
     private static void sumaUltimFila(int[][] matriz) {
@@ -166,11 +169,34 @@ public class repasoMatricesJava {
         }
         System.out.println("La suma de la diagonal principal es :" + principal);
         System.out.println("La suma de la secondary diagonal is :" + secondary);
-        
+
         if (cont == 6 && principal == secondary) {
             System.out.println("The array is magic");
         } else {
             System.out.println("The array isn´t magic");
+        }
+    }
+
+    private static void magico1(int[][] matriz, int[] vector) {
+        int sumafil = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                sumafil = sumafil + matriz[i][j];
+                vector[i] = sumafil;
+            }
+            System.out.println("suma " + i + " fila " + vector[i]);
+            sumafil = 0;
+        }
+        int cont = 0;
+        for (int i = 0; i <= vector.length; i++) {
+            if (vector[i] == vector[i + 1] ) {
+                cont++;
+            }
+        }
+        if (cont == 4) {
+            System.out.println("las filas son iguales");
+        } else {
+            System.out.println("Rows aren´t equals");
         }
     }
 }
